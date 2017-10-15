@@ -21,7 +21,9 @@ namespace SpyStore.DAL.EF
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                    @"Server=(localdb)\mssqllocaldb;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;", options => options.EnableRetryOnFailure());
+                    @"Server=(localdb)\mssqllocaldb;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;",
+                    //options => options.EnableRetryOnFailure());
+                    options => options.ExecutionStrategy(c => new MyExecutionStrategy(c)));
             }
         }
     }
