@@ -5,11 +5,14 @@ namespace SpyStore.Models.Entities.Base
 {
     class EntityBase
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
         {
             get;
             set;
         }
+
+        [Timestamp]
         public byte[] TimeStamp
         {
             get;

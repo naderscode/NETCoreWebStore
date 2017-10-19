@@ -26,5 +26,6 @@ namespace SpyStore.DAL.EF
                     options => options.ExecutionStrategy(c => new MyExecutionStrategy(c)));
             }
         }
+        public DbSet<Category> Categories { get; set; }
     }
 }
